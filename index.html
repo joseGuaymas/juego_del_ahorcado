@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="/styles.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Juego del ahorcado</h1>
+
+    <div class="contenedor" id="contenedor-inicio">
+        <div class="contenedor-boton">
+            <button id="boton-empezar">Empezar juego</button>
+        </div>
+        <div class="contenedor-boton">
+            <button id="boton-agregar-palabra">Agregar palabra al juego</button>
+        </div>
+    </div>
+
+    <div class="contenedor hidden" id="contenedor-agregar-palabra"></div>
+
+
+    <div class="hidden contenedor-juego">
+        <label class="hidden" id="label-juego">Introducí una letra para probar</label>
+    
+        <input class="hidden" id="input-letra" maxlength="1" type="text"> <button id="evaluar">Evaluar</button>
+        
+        <p class="hidden" id="outputPalabraOculta"></p>
+        <p class="hidden" id="outputLetrasErroneas"></p>
+        
+        <canvas class="hidden" id="canvas" width="150px" height="150px" id="dibujo"></canvas>
+        <div id="contenedor-teclas"></div>
+        
+
+        <button class="hidden" id="boton-nuevo-juego">Nuevo Juego</button>
+        <button class="hidden" id="boton-desistir">Desistir</button>
+    </div>
+
+    
+    <script src="/canvas.js"></script>
+    <script src="/validaciones.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>

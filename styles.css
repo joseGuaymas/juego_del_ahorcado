@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #F3F5FC;
+}
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+    margin: 2rem auto;
+    width: 80%;
+    height: 80%;
+}
+.contenedor button{
+    color: #fff;
+    background-color: darkblue;
+    padding: 5px;
+    margin: 1rem auto;
+}
+canvas{
+    margin:  1rem;
+    border: 1px solid black;
+}
+.labelPalabraNueva{
+    color: #000;
+    margin: 1rem;
+}
+.inputPalabraNueva{
+    color: black;
+    padding: 1px;
+}
+/* .botonAgregarPalabra{
+    color
+}
+.botonAgregarPalabra{
+
+} */
+.hidden{
+    display: none;
+}
+
+#contenedor-teclas{
+    display: flex;
+    margin: 10px auto;
+    flex-wrap: nowrap;
+    /* align-items: center; */
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.tecla{
+    height: 20px;
+    width: 20px;
+    border: #000 solid 1px;
+    text-align: center;
+}
