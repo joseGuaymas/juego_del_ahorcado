@@ -6,42 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link href="/styles.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Juego del ahorcado</h1>
-
-    <div class="contenedor" id="contenedor-inicio">
-        <div class="contenedor-boton">
-            <button id="boton-empezar">Empezar juego</button>
-        </div>
-        <div class="contenedor-boton">
-            <button id="boton-agregar-palabra">Agregar palabra al juego</button>
+    <!-- <h1>Juego del ahorcado</h1> -->
+   <div class="logo-box">
+       <img src="/img/Vector.png" alt="">
+   </div>
+    <div class="" id="contenedor-inicio">
+        <div class="btn-box">
+            <button class="btn-empezar-juego " id="boton-empezar"><p>Iniciar juego</p></button>
+            <button class="btn-agregar-palabra" id="boton-agregar-palabra"><p>Agregar palabra al juego</p></button>
         </div>
     </div>
 
     <div class="contenedor hidden" id="contenedor-agregar-palabra"></div>
 
-
     <div class="hidden contenedor-juego">
-        <label class="hidden" id="label-juego">Introducí una letra para probar</label>
-    
-        <input class="hidden" id="input-letra" maxlength="1" type="text"> <button id="evaluar">Evaluar</button>
-        
-        <p class="hidden" id="outputPalabraOculta"></p>
-        <p class="hidden" id="outputLetrasErroneas"></p>
-        
         <canvas class="hidden" id="canvas" width="150px" height="150px" id="dibujo"></canvas>
+        <p class="hidden" id="output-palabra-oculta"></p>
+        <p class="hidden" id="output-letras-erroneas"></p>
         <div id="contenedor-teclas"></div>
-        
-
-        <button class="hidden" id="boton-nuevo-juego">Nuevo Juego</button>
-        <button class="hidden" id="boton-desistir">Desistir</button>
+        <div class="box-botones-juego">
+            <button class="hidden btn-nuevo-juego" id="boton-nuevo-juego"><p>Nuevo Juego</p></button>
+            <button class="hidden btn-desistir" id="boton-desistir"><p>Desistir</p></button>
+        </div>
     </div>
-
     
     <script src="/canvas.js"></script>
     <script src="/validaciones.js"></script>
     <script src="/script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 </body>
 </html>

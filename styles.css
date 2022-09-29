@@ -1,61 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body{
-    background: #F3F5FC;
+  background: #F3F5FC;
+  display:flex;
+  position: relative;
+  /* width: 1440px; */
+  /* height: 1024px; */
 }
-.contenedor{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    border: 1px solid black;
-    margin: 2rem auto;
-    width: 80%;
-    height: 80%;
+.logo-box{
+  display: flex;
+  position: absolute;
+  align-items: center;
+  width: 120px;
+  height: 48px;
+  left: 40px;
+  top: 40px;
 }
-.contenedor button{
-    color: #fff;
-    background-color: darkblue;
-    padding: 5px;
-    margin: 1rem auto;
+img{
+  position: absolute;
+  height: 48px;
+  width: 31px;
+  left: 36.5%;
 }
-canvas{
-    margin:  1rem;
-    border: 1px solid black;
+.btn-empezar-juego{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 8px;
+  position:relative;
+  width: 317px;
+  height: 114px;
+  left: 730px;
+  top: 402px;
+  background: #0A3871;
+  border-radius: 24px;
 }
-.labelPalabraNueva{
-    color: #000;
-    margin: 1rem;
+.btn-empezar-juego p{
+  display: flex;
+  width: 269px;
+  height: 66px;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+.btn-agregar-palabra{
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  width: 280px;
+  height: 67px;
+  left: 748px;
+  top: 554px;
+  border: 1px solid #0A3871;
+  border-radius: 24px;
+}
+.btn-agregar-palabra p{  
+  margin: 0;
+  width: 232px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 19px;
+  text-align: center;
+  color: #0A3871;
 }
 .inputPalabraNueva{
-    color: black;
-    padding: 1px;
-}
-/* .botonAgregarPalabra{
-    color
-}
-.botonAgregarPalabra{
 
-} */
-.hidden{
-    display: none;
 }
-
+canvas{
+  margin:  1rem;
+  border: 1px solid black;
+}
+.label-palabra-nueva{
+  position: absolute;
+  width: 299px;
+  height: 48px;
+  left: 376px;
+  top: 250px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 150%;
+  color: #0A3871;
+}
+.input-palabra-nueva{
+  position: relative;
+  padding: 2px;
+  left: 376px;
+  top: 350px;
+  background-color: #FFFFFF;
+  color: black;
+  border: #F3F5FC 1px inset;
+  /* padding: 1px; */
+}
+.box-botones-palabra-nueva,
+.box-botones-juego{
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  width: 688px;
+  height: 67px;
+}
+.box-botones-palabra-nueva{
+  position: absolute;
+  left: 376px;
+  top: 701px;
+}
+.btn-guardar-palabra-nueva,
+.btn-nuevo-juego{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 8px;
+  width: 332px;
+  height: 67px;
+  background: #0A3871;
+  border-radius: 24px;
+}
+.btn-guardar-palabra-nueva p,
+.btn-nuevo-juego p{
+  width: 284px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 19px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.btn-cancelar-palabra-nueva,
+.btn-desistir{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 8px;
+  width: 332px;
+  height: 67px;
+  border: 1px solid #0A3871;
+  border-radius: 24px;
+}
+.btn-cancelar-palabra-nueva p,
+.btn-desistir p{
+  width: 284px;
+  height: 19px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 19px;
+  text-align: center;
+  color: #0A3871;
+}
+.contenedor-juego{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto;
+}
+canvas{
+  /* position: absolute; */
+  /* width: 294px; */
+  height: 400px;
+  /* left: 600px; */
+  /* top: 148px; */
+  border: none;
+}
+#output-palabra-oculta{
+  display: flex;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* position: absolute; */
+  font-size: 45px;
+  /* width: 500px; */
+  /* left: 488px; */
+  /* top: 480px; */
+  color: #0A3871;
+  /* color: #051f3e; */
+}
+#output-letras-erroneas{
+  display: flex;
+  /* position: absolute; */
+  color: #0A3871;
+  /* padding: 5px; */
+  font-size: 20px;
+  /* top: 660px; */
+  /* left: 700px; */
+  /* width: 136px;*/
+  height: 50px;
+}
 #contenedor-teclas{
-    display: flex;
-    margin: 10px auto;
-    flex-wrap: nowrap;
-    /* align-items: center; */
-    flex-direction: row;
-    border: 1px solid black;
+  display: flex;
+  /* position: relative; */
+  /* top:610px; */
+  /* left: 200px; */
+  justify-content:  center;
+  font-size: 22px;
+  margin: 0 10px 30px;
+  box-sizing: content-box;
+  width: 590px;;
+  /* margin: 10px auto; */
+  flex-wrap: wrap;
+  flex-direction: row;
+  /* border: 1px solid black; */
 }
-
 .tecla{
-    height: 20px;
-    width: 20px;
-    border: #000 solid 1px;
-    text-align: center;
+  height: 40px;
+  width: 40px;
+  margin: 1px;
+  border: #0A3871 solid 1px;
+  color: #0A3871;
+  text-align: center;
+}
+.hidden{
+  display: none;
 }
