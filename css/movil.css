@@ -1,0 +1,103 @@
+@media only screen and (min-device-width: 350px) and (max-width: 768px) {
+    body{
+        margin: auto;
+        max-width: 90%;
+        height: 100vh;        
+    }
+    .logo-box{
+        height: 35px;
+        width: 28px;
+        left: 16px;
+        top: 24px;
+    }
+    .logo-box img{
+        height: 100%;
+        width: 100%;
+        left: auto;
+    }
+    .btn-box{
+        margin: 300px auto;
+        /* display: flex;  */
+        /* justify-content: center;
+        align-items: center;
+        flex-direction: column; */
+    }
+    #boton-empezar{
+        width: 317px;
+        height: 105px;
+        /* left: 29px; */
+        /* top: 281px; */
+    }
+    #boton-agregar-palabra{
+        /* position: absolute; */
+        width: 278px;
+        height: 67px;
+        /* left: 48px; */
+        top: auto;
+        /* margin: 0º; */
+    }
+    #contenedor-agregar-palabra{
+        width: 80%;
+        margin: auto;
+        justify-content: center;
+    }
+    .label-palabra-nueva{
+        width: 343px;
+        height: 48px;
+        left: auto;
+        top: 152px;
+        font-size: 25px;
+    }
+    .input-palabra-nueva{
+        left: auto;
+        width: 200px;
+        height: 35px;
+        top: 160px;
+    }
+    .box-botones-palabra-nueva{
+        left: auto;
+        margin: auto;
+        width: auto;
+        top: 400px;
+        flex-direction: column;
+    }
+    .btn-guardar-palabra-nueva,
+    .btn-cancelar-palabra-nueva,
+    .btn-nuevo-juego,
+    .btn-desistir{
+        width: 250px;
+        left: auto;
+        padding: auto;
+        height: 50px;
+        align-items: center;
+    }
+    .btn-guardar-palabra-nueva p,
+    .btn-cancelar-palabra-nueva p,
+    .btn-nuevo-juego p,
+    .btn-desistir p{
+        height: 5px;
+    }
+    .box-botones-juego{
+        width: 250px;
+        top: 485px;
+        gap: 10px;
+        flex-direction: column;
+    }
+    canvas{
+        height: 280px;
+    }
+    #output-palabra-oculta{
+        font-size: 30px;
+    }
+    #output-letras-erroneas{
+        height: 30px;
+    }
+    #contenedor-teclas{
+        width: 350px;
+    }
+    .tecla{
+        height: 35px;
+        width: 35px;
+        margin: 2px;
+    }
+}

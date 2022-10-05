@@ -1,7 +1,7 @@
-let contenedorInicio = document.getElementById("contenedor-inicio");
+let contenedorInicio = document.getElementById('contenedor-inicio');
+let btnBox = document.querySelector('.btn-box');
 let btnEmpezar = document.getElementById("boton-empezar");
 let btnAgregarPalabra = document.getElementById("boton-agregar-palabra");
-// let contenedorBoton = document.querySelectorAll(".contenedor-boton");
 let contenedorAgregarPalabra = document.getElementById("contenedor-agregar-palabra");
 
 let contenedorJuego = document.querySelector(".contenedor-juego");
@@ -10,78 +10,22 @@ let outputLetrasErroneas = document.getElementById("output-letras-erroneas");
 let botonNuevoJuego = document.getElementById('boton-nuevo-juego');
 let botonDesistir = document.getElementById('boton-desistir');
 let contenedorTeclas = document.getElementById('contenedor-teclas');
+let anuncio = document.getElementById('anuncio');
 
 String.prototype.replaceAt=function(index, character) { return this.substr(0, index) + character + this.substr(index+character.length); } 
-const banco_de_palabras = ['muñeco', 'sublime', 'prioridad', 'proocurar', 'climatizacion', 'lombriz', 'funcionalidad', 'diametro', 'trigonometria', 'rimbombante', 'guiso', 'platica', 'entusiasmo', 'optimista'];
+const banco_de_palabras = ['MUÑECO', 'SUBLIME', 'PRIORIDAD', 'PROCURA', 'CLIMATIZACION', 'LOMBRIZ', 'FUNCION', 'DIAMETRO', 'TRIGO', 'VERTIGO', 'GUISO', 'PRESTIGIO', 'ENTUSIASMO', 'OPTIMISTA','SOMBRA'];
 
-let abecedario = "abcdefghijklmnñopqrstuvwxyz";
+let abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 let arrErroneas = []; 
 let palabraResuelta = "";
 let contadorErrores = 0;
 
-function palabraAlAzar(){
-    return banco_de_palabras[Math.floor(Math.random()*banco_de_palabras.length)]
-};
-let palabra = palabraAlAzar(); 
-
-function generarGuiones(){
-    return palabra.replace(/./g, "_ ");
-};
-let palabra_oculta = generarGuiones();
-
-function generarTeclas(){
-    for (let x=0;x<abecedario.length;x++){
-        let valor = abecedario[x]
-        let tecla = document.createElement('button');
-        tecla.innerHTML = valor;
-        console.log(tecla.innerHTML)
-        tecla.classList.add('tecla');
-        contenedorTeclas.appendChild(tecla);
-    
-        tecla.addEventListener('click', (e) => {
-            e.preventDefault();
-            let letra = tecla.innerHTML.toLowerCase();
-            if (arrErroneas.includes(letra)) {
-                alert("Esta letra ya fue ingresada");
-            };
-        
-            if(palabra_oculta.includes(letra)) {
-                alert("Esta letra ya fue ingresada");
-            };
-            
-            for(let l in palabra) {
-                if(letra == palabra[l]){
-                    palabra_oculta = palabra_oculta.replaceAt(l*2, letra);
-                }; 
-            };
-        
-            eliminarDuplicados();
-            actualizarPalabraOculta();
-            fnPalabraResuelta();
-        
-            if((!palabra_oculta.includes(letra)) && (!arrErroneas.includes(letra))){
-                arrErroneas.push(letra);
-                let letrasErroneas = eliminarDuplicados();
-                outputLetrasErroneas.innerHTML = letrasErroneas;
-                contadorErrores += 1;
-                contarErrores();
-                if (contadorErrores == 7) {
-                    alert("fin del juego");
-                    contadorErrores += 0;
-                };
-            };
-
-            if (palabra === palabraResuelta) {
-                alert("has ganado!");
-                vaciarArraysErroneas();
-                nuevoJuego();        
-            };
-        });
-    };
-};
+const jsConfetti = new JSConfetti()
 
 function esconderPantallaInicial(){
     contenedorInicio.classList.add('hidden');
+    contenedorAgregarPalabra.classList.add('hidden');
+    btnBox.classList.add('hidden');
     btnEmpezar.classList.add('hidden');
     btnAgregarPalabra.classList.add('hidden');
 };
@@ -93,7 +37,6 @@ function mostrarPantallaJuego(){
     botonNuevoJuego.classList.remove("hidden");
     botonDesistir.classList.remove("hidden");
     canvas.classList.remove('hidden');
-    generarTeclas();
 };
 
 function empezarJuego(){
@@ -107,6 +50,109 @@ btnEmpezar.addEventListener('click',(e)=>{
     e.preventDefault();
     empezarJuego();
 }); 
+
+
+function palabraAlAzar(){
+    return banco_de_palabras[Math.floor(Math.random()*banco_de_palabras.length)]
+};
+let palabra = palabraAlAzar(); 
+
+function generarGuiones(){
+    return palabra.replace(/./g, "_ ");
+};
+let palabra_oculta = generarGuiones();
+
+function generarTeclas(){
+    for (let x=0; x < abecedario.length; x++){
+        let valor = abecedario[x]
+        let tecla = document.createElement('span');
+        tecla.innerHTML = valor;
+        tecla.classList.add('tecla');
+        contenedorTeclas.appendChild(tecla);
+    };
+    let teclas = document.querySelectorAll('span');
+    return teclas 
+};
+
+let listaDeTeclas = generarTeclas();
+
+function deshabilitarTeclas(){
+    for (let x=0; x<listaDeTeclas.length; x++){
+        listaDeTeclas[x].classList.add('disabled');
+    };
+};
+
+function habilitarTeclas(){
+    for (let x=0; x<listaDeTeclas.length; x++){
+        listaDeTeclas[x].classList.remove('disabled');
+    };;
+};
+
+function mostrarAnuncioFinDelJuego(){
+    anuncio.classList.remove('hidden');
+    anuncio.innerHTML = 'Fin del juego';
+    anuncio.classList.add('anuncio-fin-del-juego');
+}
+
+function mostrarConfetti(){
+    jsConfetti.addConfetti()
+};
+
+function mostrarAnuncioGanaste(){
+    anuncio.classList.remove('hidden');
+    anuncio.innerHTML = '¡Ganaste, felicidades!';
+    anuncio.classList.add('anuncio-ganaste');
+};
+
+function quitarAnuncioGanaste(){
+    anuncio.classList.add('hidden');
+};
+
+for (let x=0; x<listaDeTeclas.length; x++){
+    listaDeTeclas[x].addEventListener('click', (e)=>{
+        e.preventDefault();
+
+        let letra = listaDeTeclas[x].innerHTML.toUpperCase();
+        if (arrErroneas.includes(letra)) {
+            alert("Esta letra ya fue ingresada");
+        };
+    
+        if(palabra_oculta.includes(letra)) {
+            alert("Esta letra ya fue ingresada");
+        };
+        
+        for(let l in palabra) {
+            if(letra == palabra[l]){
+                palabra_oculta = palabra_oculta.replaceAt(l*2, letra);
+            }; 
+        };
+    
+        eliminarDuplicados();
+        actualizarPalabraOculta();
+        fnPalabraResuelta();
+    
+        if((!palabra_oculta.includes(letra)) && (!arrErroneas.includes(letra))){
+            arrErroneas.push(letra);
+            let letrasErroneas = eliminarDuplicados();
+            outputLetrasErroneas.innerHTML = letrasErroneas;
+            contadorErrores += 1;
+            contarErrores();
+            if (contadorErrores == 7) {
+                mostrarAnuncioFinDelJuego();
+                contadorErrores += 0;
+                outputPalabraOculta.innerHTML = palabra;
+                deshabilitarTeclas();
+            }
+        };
+         if (palabra === palabraResuelta) {
+            deshabilitarTeclas();
+            mostrarConfetti();
+            vaciarArraysErroneas();
+            mostrarAnuncioGanaste();
+        };
+    });
+};
+
 
 function vaciarArraysErroneas(){
     arrErroneas = [];
@@ -122,6 +168,8 @@ function nuevoJuego(){
     contadorErrores = 0;
     outputLetrasErroneas.innerHTML = "";
     vaciarArraysErroneas();
+    habilitarTeclas();
+    quitarAnuncioGanaste();
 };
 
 function desistir(){
@@ -181,11 +229,11 @@ function crearContenedorPalabraNueva(){
     let inputPalabraNueva = document.createElement('input');
     inputPalabraNueva.classList.add("input-palabra-nueva");
     
-    let botonAgregarPalabra = document.createElement('button');
+    let botonGuardarPalabra = document.createElement('button');
     let textoGuardarYEmpezar = document.createElement('p');
-    botonAgregarPalabra.classList.add("btn-guardar-palabra-nueva");
+    botonGuardarPalabra.classList.add("btn-guardar-palabra-nueva");
     textoGuardarYEmpezar.innerHTML = 'Guardar y empezar';
-    botonAgregarPalabra.appendChild(textoGuardarYEmpezar);
+    botonGuardarPalabra.appendChild(textoGuardarYEmpezar);
     
     let botonCancelar = document.createElement('button');
     let textoCancelar = document.createElement('p');
@@ -195,7 +243,7 @@ function crearContenedorPalabraNueva(){
     
     let contenedorBotonesPalabraNueva = document.createElement('div');
     contenedorBotonesPalabraNueva.classList.add('box-botones-palabra-nueva');
-    contenedorBotonesPalabraNueva.appendChild(botonAgregarPalabra);
+    contenedorBotonesPalabraNueva.appendChild(botonGuardarPalabra);
     contenedorBotonesPalabraNueva.appendChild(botonCancelar);
 
     contenedorAgregarPalabra.appendChild(labelPalabraNueva);
@@ -206,26 +254,27 @@ function crearContenedorPalabraNueva(){
         contenedorAgregarPalabra.classList.add('hidden');
         labelPalabraNueva.classList.add('hidden');
         inputPalabraNueva.classList.add('hidden');
-        botonAgregarPalabra.classList.add('hidden');
+        botonGuardarPalabra.classList.add('hidden');
         botonCancelar.classList.add('hidden');
     };
 
-    botonAgregarPalabra.addEventListener("click", (e)=>{
+    botonGuardarPalabra.addEventListener("click", (e)=>{
         e.preventDefault();
-        agregarPalabra();
+        guardarPalabra();
     });
     
-    function agregarPalabra(){
+    function guardarPalabra(){
         let palabraNueva = inputPalabraNueva.value;
         let vale = validarPalabra(palabraNueva);
         if (!vale){
-            alert('Solo letras');
+            alert('Solo letras mayúsculas!');
             inputPalabraNueva.style.borderColor = 'salmon';
         } else {
             if (!banco_de_palabras.includes(palabraNueva)){
                 banco_de_palabras.push(palabraNueva);
                 esconderContenedorPalabraNueva();
                 empezarJuego();
+                esconderContenedorPalabraNueva();
             } else {
                 alert("Esta palabra ya es parte del juego")
             }

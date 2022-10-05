@@ -1,0 +1,45 @@
+@media only screen and (min-device-width: 768px) and (max-width: 1200px){
+    body{
+        margin: auto;
+        max-Width: 768px;
+        height: 1024px;
+    }
+    .logo-box{
+        width: 26px;
+        height: 40px;
+        left: auto;
+        top: 30px;
+    }
+    .logo-box img{
+        height: 100%;
+        width: 100%;
+    }
+    .btn-box{
+        margin: 300px auto
+    }
+    #contenedor-palabra-nueva{
+        max-width: 80%;
+    }
+    .label-palabra-nueva{
+        left: 40px;
+        top: 200px;
+        font-size: 25px;
+        width: 250px;
+        height: 48px;
+    }
+    .input-palabra-nueva{
+        left: 40px;
+        top: 250px;
+        width: 250px;
+        height: 48px;
+    }
+    .box-botones-palabra-nueva,
+    .box-botones-juego{
+        width: 688px;
+        height: 67px;
+        left:auto;
+    }
+    #contenedor-teclas{
+        width: 600px;
+    }
+}
