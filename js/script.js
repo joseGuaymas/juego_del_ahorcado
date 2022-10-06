@@ -223,7 +223,7 @@ function crearContenedorPalabraNueva(){
 
     let labelPalabraNueva = document.createElement('label');
     labelPalabraNueva.classList.add("label-palabra-nueva");
-    labelPalabraNueva.innerHTML = 'Ingrese una palabra:'
+    labelPalabraNueva.innerHTML = 'Ingresá una palabra:'
     
     let inputPalabraNueva = document.createElement('input');
     inputPalabraNueva.classList.add("input-palabra-nueva");
