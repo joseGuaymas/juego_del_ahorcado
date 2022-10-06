@@ -39,6 +39,12 @@
         height: 67px;
         left:auto;
     }
+    .contenedor-juego{
+        margin: 80px auto;
+    }
+    canvas{
+        height: 360px;
+    }
     #contenedor-teclas{
         width: 600px;
     }

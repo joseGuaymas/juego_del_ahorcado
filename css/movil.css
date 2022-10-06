@@ -17,24 +17,15 @@
     }
     .btn-box{
         margin: 300px auto;
-        /* display: flex;  */
-        /* justify-content: center;
-        align-items: center;
-        flex-direction: column; */
     }
     #boton-empezar{
         width: 317px;
         height: 105px;
-        /* left: 29px; */
-        /* top: 281px; */
     }
     #boton-agregar-palabra{
-        /* position: absolute; */
         width: 278px;
         height: 67px;
-        /* left: 48px; */
         top: auto;
-        /* margin: 0º; */
     }
     #contenedor-agregar-palabra{
         width: 80%;
@@ -69,12 +60,17 @@
         left: auto;
         padding: auto;
         height: 50px;
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
     .btn-guardar-palabra-nueva p,
     .btn-cancelar-palabra-nueva p,
     .btn-nuevo-juego p,
     .btn-desistir p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 5px;
     }
     .box-botones-juego{
@@ -82,6 +78,9 @@
         top: 485px;
         gap: 10px;
         flex-direction: column;
+    }
+    .contenedor-juego{
+        margin: 60px auto
     }
     canvas{
         height: 280px;
