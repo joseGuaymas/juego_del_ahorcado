@@ -29,11 +29,12 @@
     }
     #contenedor-agregar-palabra{
         width: 80%;
-        margin: auto;
+        display: flex;
+        align-items: center;
         justify-content: center;
     }
     .label-palabra-nueva{
-        width: 343px;
+        width: 210px;
         height: 48px;
         left: auto;
         top: 152px;

@@ -51,7 +51,6 @@ btnEmpezar.addEventListener('click',(e)=>{
     empezarJuego();
 }); 
 
-
 function palabraAlAzar(){
     return banco_de_palabras[Math.floor(Math.random()*banco_de_palabras.length)]
 };
@@ -254,6 +253,7 @@ function crearContenedorPalabraNueva(){
         contenedorAgregarPalabra.classList.add('hidden');
         labelPalabraNueva.classList.add('hidden');
         inputPalabraNueva.classList.add('hidden');
+        contenedorBotonesPalabraNueva.classList.add('hidden');
         botonGuardarPalabra.classList.add('hidden');
         botonCancelar.classList.add('hidden');
     };
@@ -267,7 +267,7 @@ function crearContenedorPalabraNueva(){
         let palabraNueva = inputPalabraNueva.value;
         let vale = validarPalabra(palabraNueva);
         if (!vale){
-            alert('Solo letras mayúsculas!');
+            alert('Tenés que ingresar unicamente letras!');
             inputPalabraNueva.style.borderColor = 'salmon';
         } else {
             if (!banco_de_palabras.includes(palabraNueva)){

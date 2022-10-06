@@ -101,6 +101,7 @@ body{
   width: 300px;
   height: 48px;
   font-size: 20px;
+  text-transform: uppercase;
   background-color: #FFFFFF;
   color: black;
   border: #F3F5FC 1px inset;
