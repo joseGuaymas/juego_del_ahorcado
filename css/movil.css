@@ -81,7 +81,7 @@
         flex-direction: column;
     }
     .contenedor-juego{
-        margin: 60px auto
+        margin: 45px auto
     }
     canvas{
         height: 280px;
