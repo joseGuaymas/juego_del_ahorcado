@@ -13,7 +13,7 @@ let contenedorTeclas = document.getElementById('contenedor-teclas');
 let anuncio = document.getElementById('anuncio');
 
 String.prototype.replaceAt=function(index, character) { return this.substr(0, index) + character + this.substr(index+character.length); } 
-const banco_de_palabras = ['MUÑECO', 'SUBLIME', 'PRIORIDAD', 'PROCURA', 'CLIMATIZACION', 'LOMBRIZ', 'FUNCION', 'DIAMETRO', 'TRIGO', 'VERTIGO', 'GUISO', 'PRESTIGIO', 'ENTUSIASMO', 'OPTIMISTA','SOMBRA'];
+const banco_de_palabras = ['MUÑECO', 'SUBLIME', 'PRIORIDAD', 'PROCURA', 'CLIMATIZAR', 'LOMBRIZ', 'FUNCION', 'DIAMETRO', 'TRIGO', 'VERTIGO', 'GUISO', 'PRESTIGIO', 'ENTUSIASMO', 'OPTIMISTA','SOMBRA','LECHUZA','SABADO','CORNETA','BOZAL','LINTERNA','NOSOTROS','PLEGARIA','BORDE','CINEASTA','GRUESO','SILUETA','RIACHUELO','YERBA','QUEMADOR','ASUETO'];
 
 let abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 let arrErroneas = []; 
@@ -111,7 +111,7 @@ for (let x=0; x<listaDeTeclas.length; x++){
     listaDeTeclas[x].addEventListener('click', (e)=>{
         e.preventDefault();
 
-        let letra = listaDeTeclas[x].innerHTML.toUpperCase();
+        let letra = listaDeTeclas[x].innerText;
         if (arrErroneas.includes(letra)) {
             alert("Esta letra ya fue ingresada");
         };
@@ -227,6 +227,11 @@ function crearContenedorPalabraNueva(){
     
     let inputPalabraNueva = document.createElement('input');
     inputPalabraNueva.classList.add("input-palabra-nueva");
+
+    let avisoCaracteres = document.createElement('p');
+    avisoCaracteres.classList.add('aviso-caracteres');
+    avisoCaracteres.innerHTML = 'Màx. de 8 letras'
+
     
     let botonGuardarPalabra = document.createElement('button');
     let textoGuardarYEmpezar = document.createElement('p');
@@ -247,6 +252,7 @@ function crearContenedorPalabraNueva(){
 
     contenedorAgregarPalabra.appendChild(labelPalabraNueva);
     contenedorAgregarPalabra.appendChild(inputPalabraNueva);
+    contenedorAgregarPalabra.appendChild(avisoCaracteres);
     contenedorAgregarPalabra.appendChild(contenedorBotonesPalabraNueva);
 
     function esconderContenedorPalabraNueva(){
@@ -266,18 +272,23 @@ function crearContenedorPalabraNueva(){
     function guardarPalabra(){
         let palabraNueva = inputPalabraNueva.value;
         let vale = validarPalabra(palabraNueva);
-        if (!vale){
-            alert('Tenés que ingresar unicamente letras!');
-            inputPalabraNueva.style.borderColor = 'salmon';
-        } else {
-            if (!banco_de_palabras.includes(palabraNueva)){
-                banco_de_palabras.push(palabraNueva);
-                esconderContenedorPalabraNueva();
-                empezarJuego();
-                esconderContenedorPalabraNueva();
+        if (palabraNueva.length <= 10){
+            if (!vale){
+                alert('Tenés que ingresar unicamente letras!');
+                inputPalabraNueva.style.borderColor = 'salmon';
             } else {
-                alert("Esta palabra ya es parte del juego")
+                if (!banco_de_palabras.includes(palabraNueva)){
+                    banco_de_palabras.push(palabraNueva);
+                    esconderContenedorPalabraNueva();
+                    empezarJuego();
+                    esconderContenedorPalabraNueva();
+                } else {
+                    alert("Esta palabra ya es parte del juego")
+                }
             }
+        } else {
+            alert('Esta palabra tiene más de 10 caracteres!');
+            inputPalabraNueva.style.borderColor = 'salmon';
         }
     };
 

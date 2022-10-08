@@ -106,6 +106,21 @@ body{
   color: black;
   border: #F3F5FC 1px inset;
 }
+.aviso-caracteres{
+  /* width: 91px; */
+  /* height: 18px; */
+  /* left: 600px; */
+  /* display: flex; */
+  position: relative;
+  left: 376px;
+  top: 550px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  color: #495057;
+  /* opacity: 0.8; */
+}
 .box-botones-palabra-nueva,
 .box-botones-juego{
   display: flex;

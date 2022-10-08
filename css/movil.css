@@ -46,11 +46,18 @@
         height: 35px;
         top: 120px;
     }
+    .aviso-caracteres{
+        left: auto;
+        top: 130px;
+        font-size: 12px;
+        text-align: start;
+        width: 200px;
+    }
     .box-botones-palabra-nueva{
         left: auto;
         margin: auto;
         width: auto;
-        top: 450px;
+        top: 460px;
         flex-direction: column;
     }
     .btn-guardar-palabra-nueva,

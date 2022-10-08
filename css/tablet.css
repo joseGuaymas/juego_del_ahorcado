@@ -33,6 +33,9 @@
         width: 250px;
         height: 48px;
     }
+    .aviso-caracteres{
+        left: 40px;
+    }
     .box-botones-palabra-nueva,
     .box-botones-juego{
         width: 688px;
