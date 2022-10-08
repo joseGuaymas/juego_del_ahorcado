@@ -13,7 +13,7 @@ let contenedorTeclas = document.getElementById('contenedor-teclas');
 let anuncio = document.getElementById('anuncio');
 
 String.prototype.replaceAt=function(index, character) { return this.substr(0, index) + character + this.substr(index+character.length); } 
-const banco_de_palabras = ['MUÑECO', 'SUBLIME', 'PRIORIDAD', 'PROCURA', 'CLIMATIZAR', 'LOMBRIZ', 'FUNCION', 'DIAMETRO', 'TRIGO', 'VERTIGO', 'GUISO', 'PRESTIGIO', 'ENTUSIASMO', 'OPTIMISTA','SOMBRA','LECHUZA','SABADO','CORNETA','BOZAL','LINTERNA','NOSOTROS','PLEGARIA','BORDE','CINEASTA','GRUESO','SILUETA','RIACHUELO','YERBA','QUEMADOR','ASUETO'];
+const banco_de_palabras = ['MUÑECO', 'SUBLIME', 'PRIMERA', 'PROCURA', 'AROMA', 'LOMBRIZ', 'FUNCION', 'DIAMETRO', 'TRIGO', 'VERTIGO', 'GUISO', 'PRECIO', 'ASTUCIA', 'OPTIMIMO','SOMBRA','LECHUZA','SABADO','CORNETA','BOZAL','LINTERNA','NOSOTROS','PLEGARIA','BORDE','CINEASTA','GRUESO','SILUETA','PAÑUELO','YERBA','QUEMADOR','ASUETO','CONVENIR','DIGNIDAD','GUITARRA','KARAOKE','ANGULO','PENDULO','CATEDRA','IGLESIA','LONGITUD','LECTURA','MOLDURA','TRAPECIO','TRIPODE','PANAL','PROMESA','CULTURA','MAQUETA','TRUEQUE','SENTIDO','TULIPAN','CUADERNO','ALCAUCIL','FRUTILLA','MAREA','CLONAR','ALMENDRA','PEQUEÑO','EFIMERO','ENGRUDO','CLAVADO','ALGEBRA','ORQUIDEA','CROQUETA','MANIQUI','EMPATIA','PLURAL'];
 
 let abecedario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
 let arrErroneas = []; 
@@ -259,6 +259,7 @@ function crearContenedorPalabraNueva(){
         contenedorAgregarPalabra.classList.add('hidden');
         labelPalabraNueva.classList.add('hidden');
         inputPalabraNueva.classList.add('hidden');
+        avisoCaracteres.classList.add('hidden')
         contenedorBotonesPalabraNueva.classList.add('hidden');
         botonGuardarPalabra.classList.add('hidden');
         botonCancelar.classList.add('hidden');
@@ -272,7 +273,7 @@ function crearContenedorPalabraNueva(){
     function guardarPalabra(){
         let palabraNueva = inputPalabraNueva.value;
         let vale = validarPalabra(palabraNueva);
-        if (palabraNueva.length <= 10){
+        if (palabraNueva.length <= 8){
             if (!vale){
                 alert('Tenés que ingresar unicamente letras!');
                 inputPalabraNueva.style.borderColor = 'salmon';
